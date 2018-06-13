@@ -46,15 +46,17 @@ $(document).ready(function() {
 var playerOneName = $("#nameFieldOne").val();
 var playerTwoName = $("#nameFieldTwo").val();
 var playerOne = new Player("Dave");
-var turnTotal = 0;
+var turnTotal = 0; //test for necessity after button is added
 
 
-  // $("button#roll").click(function() {
+  $("button#roll").click(function() {
+      debugger;
     var roll = playerOne.diceRoll();
     var isOne = takesRollChecksForOne(roll);
-    var turnTotal = updateTurnTotal(roll, isOne, turnTotal);
+    turnTotal = updateTurnTotal(roll, isOne, turnTotal);
+
     console.log(turnTotal);
-  // })
+  })
 })
 
 
