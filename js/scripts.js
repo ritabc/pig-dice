@@ -83,7 +83,9 @@ $(document).ready(function() {
 function switchPlayers(points) {
   // business side
   checkWinCondition(points)
-
+  if (checkWinCondition(points)){
+    console.log("you win");
+  }
   // user interface side
     // hide user1 dice
     // show user2 dice
