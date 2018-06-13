@@ -28,13 +28,12 @@ function takesRollChecksForOne(roll) {
   }
 }
 
-function updateTurnTotal(roll, wasOneRolled, turnTotal) {
+function updateTurnTotal(roll, wasOneRolled, turnTotal, playerPoints) {
   if (!wasOneRolled) {
     turnTotal += roll
   } else {
-    // hide user1 dice
-    // show user2 dice
     turnTotal = 0
+    switchPlayers(playerPoints)
   }
   return turnTotal
 }
@@ -46,35 +45,50 @@ $(document).ready(function() {
 var playerOneName = $("#nameFieldOne").val();
 var playerTwoName = $("#nameFieldTwo").val();
 var playerOne = new Player("Dave");
-var turnTotal = 0; //test for necessity after button is added
+var playerTwo = new Player("Danielle");
+var turnTotal = 0;
 
 
-  $("button#roll").click(function() {
-      debugger;
+  $("button#player-one-roll").click(function() {
     var roll = playerOne.diceRoll();
     var isOne = takesRollChecksForOne(roll);
-    turnTotal = updateTurnTotal(roll, isOne, turnTotal);
-
-    console.log(turnTotal);
+    turnTotal = updateTurnTotal(roll, isOne, turnTotal, playerOne.points);
+    console.log("Turn total for player 1: " + turnTotal);
   })
 
-  $("button#playerOneHold").click(function(){
+  $("button#player-two-roll").click(function() {
+    var roll = playerTwo.diceRoll();
+    var isOne = takesRollChecksForOne(roll);
+    turnTotal = updateTurnTotal(roll, isOne, turnTotal, playerTwo.points);
+    console.log("Turn total for player 2: " + turnTotal);
+  })
+
+  $("button#player-one-hold").click(function(){
     playerOne.points += turnTotal
+    switchPlayers(playerOne.points)
+    console.log("Player 1.points: " + playerOne.points);
     turnTotal = 0
-    switchPlayers()
+  })
+
+  $("button#player-two-hold").click(function(){
+    playerTwo.points += turnTotal
+    switchPlayers(playerTwo.points)
+    console.log("Player 2.points: " + playerTwo.points);
+    turnTotal = 0
   })
 })
 
-function switchPlayers() {
+function switchPlayers(points) {
   // business side
-    // run checkWinCondition()
-    // reset turnTotal
+  checkWinCondition(points)
 
   // user interface side
     // hide user1 dice
     // show user2 dice
 }
 
-function checkWinCondition() {
-  
+function checkWinCondition(points) {
+ if (points >= 100) {
+  return true
+}
 }
