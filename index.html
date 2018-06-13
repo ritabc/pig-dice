@@ -12,28 +12,37 @@
 </head>
 <body>
   <div class="container">
-    <div class="row">
-      <div class="col-md-6">
+    <div class="jumbotron">
+      <h1>Pig Dice Game</h1>
+    </div>
+    <div class="row" id="name-fields">
+      <div class="col-md-5">
         <label for="nameFieldOne">Enter player name #1:</label>
         <input type="text" id="nameFieldOne">
       </div>
-      <div class="col-md-6">
+      <div class="col-md-5">
         <label for="nameFieldTwo">Enter player name #2:</label>
         <input type="text" id="nameFieldTwo">
       </div>
-      <div class="col-md-12" id="submit-box">
+      <div class="col-md-2" id="submit-box">
         <button type="submit" id="name-submit">Submit Name</button>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-6" id="player-one-buttons">
+    <div class="row" id="player-buttons">
+      <div id="player-one-buttons">
         <button type="button" id="player-one-roll">Player One Roll the dice</button>
         <button type="button" id="player-one-hold">Player One Hold Your Score</button>
       </div>
-      <div class="col-md-6" id="player-two-buttons">
+      <div id="player-two-buttons">
         <button type="button" id="player-two-roll">Player Two Roll the dice</button>
         <button type="button" id="player-two-hold">Player Two Hold Your Score</button>
       </div>
+    </div>
+    <div class="scores-display">
+      <h2><span class="player-one-name"></span>: Score</h2>
+      <p>The score for this player is: <span id="player-one-score"></span></p>
+      <h2><span class="player-two-name"></span>: Score</h2>
+      <p>The score for this player is: <span id="player-two-score"></span></p>
     </div>
   </div>
 
