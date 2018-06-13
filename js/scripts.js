@@ -57,25 +57,24 @@ var turnTotal = 0; //test for necessity after button is added
 
     console.log(turnTotal);
   })
+
+  $("button#playerOneHold").click(function(){
+    playerOne.points += turnTotal
+    turnTotal = 0
+    switchPlayers()
+  })
 })
 
+function switchPlayers() {
+  // business side
+    // run checkWinCondition()
+    // reset turnTotal
 
-// Comments
-//
-// onRollClick(){
-//   var roll = player.diceRoll
-//   var turnTotal = 0
-//   takesRollChecksForOne(roll){
-//       wasOneRolled = true if roll = 1
-//       wasOneRolled = false if roll 2 - 6
-//       return wasOneRolled
-//   }
-//
-//   updateTurnTotal(roll, wasOneRolled)
-//     if !wasOneRolled, {update turnTotal), continues turn}
-//     else {switch players and reset turnTotal}
-// }
-//
-// onHoldClick () {
-//   player.points += turnTotal
-// }
+  // user interface side
+    // hide user1 dice
+    // show user2 dice
+}
+
+function checkWinCondition() {
+  
+}
