@@ -36,29 +36,39 @@
     </div>
     <div class="row" id="player-buttons">
       <div id="player-one-buttons">
-        <h2><span id="player1-name"></span> 's Turn</h2>
+        <h2><span class="player1-name"></span> 's Turn</h2>
         <div class="wrap1">
    			    <div id="dice1" class="dice dice_1"></div>
         </div>
-        <p id="result">Please click above dice!</p>
-        <button type="button" id="player-one-hold">Player One Hold Your Score</button>
+        <h2 id="result1">Please click above dice!</h2>
+        <button type="button" class="btn btn-danger" id="player-one-hold">Hold Your Score</button>
       </div>
       <div id="player-two-buttons">
-        <h2><span id="player2-name"></span> 's Turn</h2>
+        <h2><span class="player2-name"></span> 's Turn</h2>
         <div class="wrap2">
    			    <div id="dice2" class="dice dice_1"></div>
         </div>
-        <p id="result">Please click above dice!</p>
-        <button type="button" id="player-two-hold">Player Two Hold Your Score</button>
+        <h2 id="result2">Please click above dice!</h2>
+        <button type="button" class="btn btn-danger" id="player-two-hold">Hold Your Score</button>
       </div>
     </div>
     <div class="scores-display">
-      <h2><span class="player-one-name"></span>: Score</h2>
-      <p>The score for this player is: <span id="player-one-score"></span></p>
-      <h2><span class="player-two-name"></span>: Score</h2>
-      <p>The score for this player is: <span id="player-two-score"></span></p>
+      <div class="row">
+        <div class="col-md-6">
+          <h2><span class="player-one-name"></span>'s Score</h2>
+          <p>The score for this player is: <span id="player-one-score"></span></p>
+        </div>
+        <div class="col-md-6">
+          <h2><span class="player-two-name"></span>'s Score</h2>
+          <p>The score for this player is: <span id="player-two-score"></span></p>
+        </div>
+      </div>
     </div>
   </div>
-
+  <div class="container" id="winner-message">
+    <h2><span class="winner-name"></span> is the Winner!</h2>
+    <h4><span class="winner-name"></span>'s score was: <span class="winner-points"></span></h4>
+    <img src="img/pig-meme.gif" alt="Ferocious Pig">
+  </div>
 </body>
 </html>

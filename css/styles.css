@@ -67,6 +67,14 @@ body {
   color: #5A4841
 }
 
+.scores-display {
+  text-align: center;
+}
+
+/*#winner-message {
+  display:none
+}*/
+
 /*Dice animation from http://www.goocode.net/js/51-jquery-dice-animation.html*/
 
 .wrap1, .wrap2{width:90px; height:90px; margin:30px auto 30px auto; position:relative}

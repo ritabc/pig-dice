@@ -34,7 +34,7 @@ function switchPlayers(points, player, playerOneInput) {
   // business side
   checkWinCondition(points)
   if (checkWinCondition(points)){
-    console.log("you win");
+    winnerMessage(player)
   }
   // user interface side
 
@@ -50,7 +50,13 @@ function switchPlayers(points, player, playerOneInput) {
 function checkWinCondition(points) {
  if (points >= 100) {
   return true
+  }
 }
+
+function winnerMessage(player) {
+  $(".winner-name").text(player.name)
+  $(".winner-points").text(player.points)
+  $("#winner-message").show()
 }
 
 // User Interface
@@ -67,7 +73,6 @@ function updateRollDisplay(roll) {
 }
 
 function animateRandomNumber(playerNumber) {
-  debugger;
   var dice = $("#dice" + playerNumber);
   // dice.click(function(){
     $(".wrap" + playerNumber).append("<div id='dice_mask'></div>");//add mask
@@ -83,7 +88,7 @@ function animateRandomNumber(playerNumber) {
     }).delay(50).animate({left:'-2px',top:'2px'},50,function(){
       dice.removeClass("dice_e").addClass("dice_"+num);
     });
-    $("#result").html("Your throwing points are<span>"+num+"</span>");
+    $("#result" + playerNumber).html("Your last roll was a <span>"+num+"</span>");
     dice.css('cursor','pointer');
     $("#dice_mask").remove(); //remove mask
 
@@ -99,8 +104,8 @@ $(document).ready(function() {
     var playerOne = new Player(playerOneInput);
     var playerTwoInput = $("input#nameFieldTwo").val();
     var playerTwo = new Player(playerTwoInput);
-    $("span#player1-name").text(playerOne.name);
-    $("span#player2-name").text(playerTwo.name);
+    $("span.player1-name").text(playerOne.name);
+    $("span.player2-name").text(playerTwo.name);
 
     $("#name-fields").hide();
     switchPlayers(playerTwo.points, playerTwo, playerOneInput);
@@ -112,22 +117,18 @@ $(document).ready(function() {
 
     $("#dice1").click(function() {
       var roll = animateRandomNumber("1");
-      console.log("Roll value for player 1: " + roll)
       updateRollDisplay(roll);
       var isOne = takesRollChecksForOne(roll);
       turnTotal = updateTurnTotal(roll, isOne, turnTotal, playerOne.points, playerOne, playerOne.name)
       updateScoreDisplay(playerOne.points, playerTwo.points, turnTotal)
-      console.log("Turn total for player 1: " + turnTotal);
     })
 
     $("#dice2").click(function() {
       var roll = animateRandomNumber("2");
-      console.log("Roll value for player 2: " + roll)
       updateRollDisplay(roll);
       var isOne = takesRollChecksForOne(roll);
       turnTotal = updateTurnTotal(roll, isOne, turnTotal, playerTwo.points, playerTwo, playerOne.name);
       updateScoreDisplay(playerOne.points, playerTwo.points, turnTotal)
-      console.log("Turn total for player 2: " + turnTotal);
     })
 
     $("button#player-one-hold").click(function(){
@@ -135,7 +136,6 @@ $(document).ready(function() {
       switchPlayers(playerOne.points, playerOne, playerOne.name)
       turnTotal = 0
       updateScoreDisplay(playerOne.points, playerTwo.points, turnTotal)
-      console.log("Player 1.points: " + playerOne.points);
     })
 
     $("button#player-two-hold").click(function(){
@@ -143,7 +143,6 @@ $(document).ready(function() {
       switchPlayers(playerTwo.points, playerTwo, playerOne.name)
       turnTotal = 0
       updateScoreDisplay(playerOne.points, playerTwo.points, turnTotal)
-      console.log("Player 2.points: " + playerTwo.points);
     })
   })
 })
