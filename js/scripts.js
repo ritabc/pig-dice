@@ -107,7 +107,8 @@ $(document).ready(function() {
     $("span.player1-name").text(playerOne.name);
     $("span.player2-name").text(playerTwo.name);
 
-    $("#name-fields").hide();
+    $("#names-div").hide();
+
     switchPlayers(playerTwo.points, playerTwo, playerOneInput);
 
     $(".scores-display").show();

@@ -12,35 +12,48 @@
   <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
 </head>
 <body>
-  <div class="container" id="header">
+  <div class="container border" id="header">
     <div class="jumbotron">
       <h1>Pig Dice Game</h1>
     </div>
   </div>
-  <div class="container" id="main-body">
-    <div id="turn-table">
-      <h2>The current total is: <span id="total"></span></h2>
-    </div>
-    <div class="row" id="name-fields">
-      <div class="col-md-5">
-        <label for="nameFieldOne">Enter player name #1:</label>
-        <input type="text" class="form-control" id="nameFieldOne">
-      </div>
-      <div class="col-md-5">
-        <label for="nameFieldTwo">Enter player name #2:</label>
-        <input type="text" class="form-control" id="nameFieldTwo">
-      </div>
-      <div class="col-md-2" id="submit-box">
-        <button type="submit" class="btn btn-danger" id="name-submit">Submit Name</button>
+  <div class="container border" id="main-body">
+    <div id="names-div">
+      <!-- <div id="turn-table">
+        <h2>The current total is: <span id="total"></span></h2>
+      </div> -->
+      <div class="names-parent">
+        <!-- <div class="row">
+          <h2>Please enter your names to start the game</h2>
+        </div> -->
+        <div class="row" id="name-fields">
+          <div>
+            <h2>Please enter your names to start the game</h2>
+          </div>
+          <div class="col-md-6">
+            <label for="nameFieldOne">Enter player name #1:</label>
+            <input type="text" class="form-control" id="nameFieldOne">
+          </div>
+          <div class="col-md-6">
+            <label for="nameFieldTwo">Enter player name #2:</label>
+            <input type="text" class="form-control" id="nameFieldTwo">
+          </div>
+          <div class="col-md-12" id="submit-box">
+            <button type="submit" class="btn btn-danger" id="name-submit">Submit Names</button>
+          </div>
+        </div>
       </div>
     </div>
     <div class="row" id="player-buttons">
+      <div id="turn-table">
+        <h2>The current total is: <span id="total"></span></h2>
+      </div>
       <div id="player-one-buttons">
         <h2><span class="player1-name"></span> 's Turn</h2>
         <div class="wrap1">
    			    <div id="dice1" class="dice dice_1"></div>
         </div>
-        <h2 id="result1">Please click above dice!</h2>
+        <h2 id="result1">Click on the dice to start your roll!</h2>
         <button type="button" class="btn btn-danger" id="player-one-hold">Hold Your Score</button>
       </div>
       <div id="player-two-buttons">
@@ -48,7 +61,7 @@
         <div class="wrap2">
    			    <div id="dice2" class="dice dice_1"></div>
         </div>
-        <h2 id="result2">Please click above dice!</h2>
+        <h2 id="result2">Click on the dice to start your roll!</h2>
         <button type="button" class="btn btn-danger" id="player-two-hold">Hold Your Score</button>
       </div>
     </div>
@@ -65,10 +78,13 @@
       </div>
     </div>
   </div>
-  <div class="container" id="winner-message">
+  <div class="container border" id="winner-message">
     <h2><span class="winner-name"></span> is the Winner!</h2>
     <h4><span class="winner-name"></span>'s score was: <span class="winner-points"></span></h4>
     <img src="img/pig-meme.gif" alt="Ferocious Pig">
   </div>
+    <div class="border" id="footer-image">
+      <img src="img/grass-footer.png" alt="grass">
+    </div>
 </body>
 </html>
