@@ -37,7 +37,7 @@ function switchPlayers(points, player, playerOneInput) {
     console.log("you win");
   }
   // user interface side
-  $("span#last-roll").text("");
+
   if (playerOneInput === player.name) {
     $("#player-one-buttons").hide();
     $("#player-two-buttons").show();
@@ -66,6 +66,30 @@ function updateRollDisplay(roll) {
   $("#last-roll").text(roll);
 }
 
+function animateRandomNumber(playerNumber) {
+  debugger;
+  var dice = $("#dice" + playerNumber);
+  // dice.click(function(){
+    $(".wrap" + playerNumber).append("<div id='dice_mask'></div>");//add mask
+    dice.attr("class","dice");//After clearing the last points animation
+    dice.css('cursor','default');
+    var num = Math.floor(Math.random()*6+1);//random num 1-6
+    dice.animate({left: '+2px'}, 50,function(){
+      dice.addClass("dice_t");
+    }).delay(100).animate({top:'-2px'},50,function(){
+      dice.removeClass("dice_t").addClass("dice_s");
+    }).delay(100).animate({opacity: 'show'},300,function(){
+      dice.removeClass("dice_s").addClass("dice_e");
+    }).delay(50).animate({left:'-2px',top:'2px'},50,function(){
+      dice.removeClass("dice_e").addClass("dice_"+num);
+    });
+    $("#result").html("Your throwing points are<span>"+num+"</span>");
+    dice.css('cursor','pointer');
+    $("#dice_mask").remove(); //remove mask
+
+    return num
+  }
+
 $(document).ready(function() {
   var turnTotal = 0;
 
@@ -75,6 +99,8 @@ $(document).ready(function() {
     var playerOne = new Player(playerOneInput);
     var playerTwoInput = $("input#nameFieldTwo").val();
     var playerTwo = new Player(playerTwoInput);
+    $("span#player1-name").text(playerOne.name);
+    $("span#player2-name").text(playerTwo.name);
 
     $("#name-fields").hide();
     switchPlayers(playerTwo.points, playerTwo, playerOneInput);
@@ -84,8 +110,8 @@ $(document).ready(function() {
     $("span.player-two-name").text(playerTwo.name)
     updateScoreDisplay(playerOne.points, playerTwo.points, turnTotal)
 
-    $("button#player-one-roll").click(function() {
-      var roll = playerOne.diceRoll();
+    $("#dice1").click(function() {
+      var roll = animateRandomNumber("1");
       console.log("Roll value for player 1: " + roll)
       updateRollDisplay(roll);
       var isOne = takesRollChecksForOne(roll);
@@ -94,8 +120,8 @@ $(document).ready(function() {
       console.log("Turn total for player 1: " + turnTotal);
     })
 
-    $("button#player-two-roll").click(function() {
-      var roll = playerTwo.diceRoll();
+    $("#dice2").click(function() {
+      var roll = animateRandomNumber("2");
       console.log("Roll value for player 2: " + roll)
       updateRollDisplay(roll);
       var isOne = takesRollChecksForOne(roll);

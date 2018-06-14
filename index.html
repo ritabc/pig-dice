@@ -19,7 +19,6 @@
   </div>
   <div class="container" id="main-body">
     <div id="turn-table">
-      <h2>Last roll: <span id="last-roll"></span></h2>
       <h2>The current total is: <span id="total"></span></h2>
     </div>
     <div class="row" id="name-fields">
@@ -37,11 +36,19 @@
     </div>
     <div class="row" id="player-buttons">
       <div id="player-one-buttons">
-        <button type="button" id="player-one-roll">Player One Roll the dice</button>
+        <h2><span id="player1-name"></span> 's Turn</h2>
+        <div class="wrap1">
+   			    <div id="dice1" class="dice dice_1"></div>
+        </div>
+        <p id="result">Please click above dice!</p>
         <button type="button" id="player-one-hold">Player One Hold Your Score</button>
       </div>
       <div id="player-two-buttons">
-        <button type="button" id="player-two-roll">Player Two Roll the dice</button>
+        <h2><span id="player2-name"></span> 's Turn</h2>
+        <div class="wrap2">
+   			    <div id="dice2" class="dice dice_1"></div>
+        </div>
+        <p id="result">Please click above dice!</p>
         <button type="button" id="player-two-hold">Player Two Hold Your Score</button>
       </div>
     </div>
