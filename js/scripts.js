@@ -40,10 +40,10 @@ function switchPlayers(points, player, playerOneInput) {
 
   if (playerOneInput === player.name) {
     $("#player-one-buttons").hide();
-    $("#player-two-buttons").show();
+    $("#player-two-buttons").fadeIn(3500);
   } else {
     $("#player-two-buttons").hide();
-    $("#player-one-buttons").show();
+    $("#player-one-buttons").fadeIn(3500);
   }
 }
 
