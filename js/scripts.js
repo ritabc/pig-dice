@@ -37,6 +37,7 @@ function switchPlayers(points, player, playerOneInput) {
     console.log("you win");
   }
   // user interface side
+  $("span#last-roll").text("");
   if (playerOneInput === player.name) {
     $("#player-one-buttons").hide();
     $("#player-two-buttons").show();

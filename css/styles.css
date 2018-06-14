@@ -7,6 +7,10 @@
   display: none;
 }
 
+#player-two-buttons {
+  text-align: right;
+}
+
 .scores-display {
   display: none;
 }
@@ -14,4 +18,54 @@
 #turn-table {
   display: none;
   text-align: center;
+}
+
+body {
+  background-image: url('../img/spring.png');
+  font-family: 'Patua One', cursive;
+}
+
+#main-body {
+  background: rgba(250,250,250,.8);
+  padding: 20px;
+  border: 2px solid black;
+  border-top: 0;
+}
+
+.jumbotron {
+  margin-bottom: 0px;
+  background-color: transparent;
+}
+
+#header {
+  background-image: url(../img/banner.jpg);
+  min-height: 335px;
+  background-position: top;
+  background-size: cover;
+  text-align: center;
+}
+
+.row {
+  margin:0px;
+}
+
+/*#name-submit {
+  margin-top: 20px;
+}*/
+
+#name-fields {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-danger {
+  background-color: #F3B59D;
+  color: #5A4841;
+  border-color: #DE8C6C
+}
+
+.btn-danger:hover, .btn-danger:focus, .btn-danger:active{
+  background-color: #DE8C6C;
+  color: #5A4841
 }
