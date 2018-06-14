@@ -10,3 +10,8 @@
 .scores-display {
   display: none;
 }
+
+#turn-table {
+  display: none;
+  text-align: center;
+}
