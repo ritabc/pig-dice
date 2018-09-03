@@ -7,6 +7,7 @@
 ## Description
 A web page to display the pig dice game
 
+## [Click Here to Play](https://ritabc.github.io/pig-dice/)
 
 ## Setup/Contribution Requirements
 
